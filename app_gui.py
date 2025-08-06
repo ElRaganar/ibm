@@ -2,7 +2,7 @@ import os
 import json
 import hashlib
 import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
+from tkinter import ttk, messagebox, filedialog, font
 import ttkbootstrap as tb
 import logging
 from datetime import datetime
@@ -101,7 +101,8 @@ class AppManagerGUI:
         self.root.resizable(False, False)
         self.rules = get_rules()
         self.scan_path = tk.StringVar()
-
+        self.custom_font = font.Font(family="Helvetica", size=11)
+        
         self.build_gui()
 
     def build_gui(self):
@@ -115,10 +116,12 @@ class AppManagerGUI:
         ttk.Button(frame, text="✅ Scan", command=self.scan, bootstyle="success").grid(row=0, column=3, padx=5)
 
     
-        self.result_text = tk.Text(frame, height=20, wrap="none")
+        self.result_text = tk.Text(frame, height=30, wrap="none",font=self.custom_font)
         self.result_text.grid(row=1, column=0, columnspan=4, pady=10, sticky="nsew")
         frame.rowconfigure(1, weight=1)
         frame.columnconfigure(1, weight=1)
+    
+        # self.result_text = tk.Text(frame, height=20, wrap="none", font=custom_font)
 
 
         ttk.Button(frame, text="🧹 Clean Duplicates", command=self.delete_duplicates, bootstyle="danger").grid(row=2, column=0, pady=5)
