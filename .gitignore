@@ -1,0 +1,14 @@
+# Ignore Python scripts
+1.py
+2work.py
+
+# Ignore JSON rules
+rules.json
+
+# Ignore GUI script if needed
+
+# Ignore folders
+.vscode/
+env/
+logs/
+reports/
